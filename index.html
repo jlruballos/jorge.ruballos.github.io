@@ -4,13 +4,16 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jorge Ruballos — Robotics, ML, Control Systems</title>
-  <meta name="description" content="Jorge Ruballos — robotics + applied ML, longitudinal health modeling, ROS, control systems/SCADA." />
-  <!-- Cache-bust: bump v= anytime styles change -->
+  <meta name="description" content="Jorge Ruballos — robotics, applied ML, control systems, longitudinal health modeling." />
+
+  <!-- Cache-busted CSS -->
   <link rel="stylesheet" href="styles.css?v=2025-12-19" />
 </head>
 
 <body>
   <div class="page">
+
+    <!-- HEADER -->
     <header class="masthead retro-outset">
       <div class="masthead-inner">
         <div class="mast-title">
@@ -18,6 +21,7 @@
           <h1>Jorge Ruballos</h1>
           <p class="tagline">Robotics • Machine Learning • Control Systems (SCADA/I&amp;C)</p>
         </div>
+
         <nav class="top-pills" aria-label="Primary">
           <a class="pill" href="#projects">Projects</a>
           <a class="pill" href="#experience">Experience</a>
@@ -29,40 +33,87 @@
       </div>
     </header>
 
+    <!-- MAIN LAYOUT -->
     <div class="portal" id="content">
-      <!-- LEFT SIDEBAR -->
-      <aside class="side left" aria-label="Shortcuts">
-        <div class="widget retro-outset">
-          <div class="widget-title">Quick Links</div>
-          <div class="widget-content">
-            <div class="stack">
-              <a class="sidebtn" href="assets/Jorge_Ruballos_Resume.pdf" target="_blank" rel="noopener">My Resume</a>
-              <a class="sidebtn" href="https://github.com/jlruballos" target="_blank" rel="noopener">My GitHub</a>
-              <a class="sidebtn" href="https://www.linkedin.com/in/jorge-ruballos-44957291/" target="_blank" rel="noopener">My LinkedIn</a>
-              <a class="sidebtn" href="mailto:jlruballos@gmail.com">Email Me</a>
+
+      <!-- LEFT RAIL (STICKY, STACKED) -->
+      <div class="left-rail">
+
+        <!-- Quick Links -->
+        <aside class="side retro-outset" aria-label="Quick Links">
+          <div class="widget">
+            <div class="widget-title">Quick Links</div>
+            <div class="widget-content">
+              <div class="stack">
+                <a class="sidebtn" href="assets/Jorge_Ruballos_Resume.pdf" target="_blank" rel="noopener">My Resume</a>
+                <a class="sidebtn" href="https://github.com/jlruballos" target="_blank" rel="noopener">My GitHub</a>
+                <a class="sidebtn" href="https://www.linkedin.com/in/jorge-ruballos-44957291/" target="_blank" rel="noopener">My LinkedIn</a>
+                <a class="sidebtn" href="mailto:jlruballos@gmail.com">Email Me</a>
+              </div>
             </div>
           </div>
-        </div>
+        </aside>
 
-        <div class="widget retro-outset">
-          <div class="widget-title">Education</div>
-          <div class="widget-content">
-            <ul class="mini">
-              <p><strong>M.S. Robotics</strong> — Oregon State University (in progress)</p>
-              <p><strong>Lab:</strong> OSU SHARE Lab (Advisor: Dr. Naomi Fitter)</p>
-              <p><strong>B.S. Computer Engineering</strong> — Cal Poly Pomona</p>
-            </ul>
+        <!-- Education -->
+        <aside class="side retro-outset" aria-label="Education">
+          <div class="widget">
+            <div class="widget-title">Education</div>
+            <div class="widget-content">
+              <ul class="mini">
+                <li><strong>M.S. Robotics</strong> — Oregon State University (in progress)</li>
+                <li><strong>Lab:</strong> OSU SHARE Lab (Advisor: Dr. Naomi Fitter)</li>
+                <li><strong>B.S. Computer Engineering</strong> — Cal Poly Pomona</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </aside>
+        </aside>
 
-      <!-- CENTER -->
+        <!-- Hobbies -->
+        <aside class="side retro-outset" aria-label="Hobbies">
+          <div class="widget">
+            <div class="widget-title">Hobbies</div>
+            <div class="widget-content">
+              <ul class="mini">
+                <li>Tennis / pickleball</li>
+                <li>Robotics tinkering (sensors + embedded)</li>
+                <li>Live music / shows</li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Currently Reading -->
+        <aside class="side retro-outset" aria-label="Currently Reading">
+          <div class="widget">
+            <div class="widget-title">Currently Reading</div>
+            <div class="widget-content">
+              <p class="mini">
+                <strong>Playing with Reality</strong><br />
+                <em>How Games Have Shaped Our World</em><br />
+                Kelly Clancy (2024)
+              </p>
+              <p>
+                <a href="https://www.goodreads.com/book/show/200206308-playing-with-reality"
+                   target="_blank" rel="noopener">
+                  View on Goodreads
+                </a>
+              </p>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+
+      <!-- CENTER CONTENT -->
       <main class="center">
+
+        <!-- ABOUT -->
         <section class="card retro-outset">
           <div class="section-header">
             <span>Welcome.exe</span>
             <span class="stamp">Updated: <span id="updated"></span></span>
           </div>
+
           <div class="section-body retro-inset">
             <div class="hero">
               <div class="portrait-box">
@@ -80,6 +131,7 @@
                   longitudinal health sensor modeling, and real-world deployments. I also bring industry experience
                   in municipal control systems/SCADA, including testing, commissioning, and field investigations.
                 </p>
+
                 <div class="cta-row">
                   <a class="pill" href="#projects">See Projects</a>
                   <a class="pill" href="#contact">Contact</a>
@@ -89,36 +141,43 @@
           </div>
         </section>
 
+        <!-- PROJECTS -->
         <section id="projects" class="card retro-outset">
           <div class="section-header">Selected Projects</div>
           <div class="section-body retro-inset">
-            <div class="cards rows">
-              <article class="mini-card">
-                <h3>DETECT — Longitudinal Health Trend Analysis</h3>
-                <p class="meta">Python / R • time-series, imputation, survival & recurrent events</p>
-                <p>
-                  Pipelines for multi-modal longitudinal in-home sensor data: feature engineering (rolling/deltas),
-                  missingness analysis, imputation, and survival/recurrent-event modeling for outcomes like falls and hospitalization.
-                </p>
-                <p class="links"><a href="https://github.com/jlruballos/DETECT" target="_blank" rel="noopener">Repository</a></p>
-              </article>
 
-              <article class="mini-card">
-                <h3>sammy_ws — Robot Simulator / ROS Workspace</h3>
-                <p class="meta">ROS 2 • simulation / tooling</p>
-                <p>
-                  Robotics simulator workspace for experimentation and integration work—supporting iterative development and reproducible testing.
-                </p>
-                <p class="links"><a href="https://github.com/jlruballos/sammy_ws" target="_blank" rel="noopener">Repository</a></p>
-              </article>
-            </div>
+            <article class="mini-card">
+              <h3>DETECT — Longitudinal Health Trend Analysis</h3>
+              <p class="meta">Python / R • time-series, imputation, survival & recurrent events</p>
+              <p>
+                Pipelines for multi-modal longitudinal in-home sensor data: feature engineering (rolling/deltas),
+                missingness analysis, imputation, and survival/recurrent-event modeling for outcomes like falls and hospitalization.
+              </p>
+              <p class="links">
+                <a href="https://github.com/jlruballos/DETECT" target="_blank" rel="noopener">Repository</a>
+              </p>
+            </article>
+
+            <article class="mini-card">
+              <h3>sammy_ws — Robot Simulator / ROS Workspace</h3>
+              <p class="meta">ROS 2 • simulation / tooling</p>
+              <p>
+                Robotics simulator workspace for experimentation and integration work—supporting iterative development and reproducible testing.
+              </p>
+              <p class="links">
+                <a href="https://github.com/jlruballos/sammy_ws" target="_blank" rel="noopener">Repository</a>
+              </p>
+            </article>
+
           </div>
         </section>
 
+        <!-- EXPERIENCE -->
         <section id="experience" class="card retro-outset">
           <div class="section-header">Experience</div>
           <div class="section-body retro-inset">
             <div class="timeline">
+
               <div class="titem">
                 <div class="trole">Graduate Research Assistant — OSU SHARE Lab</div>
                 <div class="tmeta">Sep 2023 – Present</div>
@@ -132,7 +191,7 @@
                 <div class="trole">Control Systems Engineer — Arcadis</div>
                 <div class="tmeta">Jan 2023 – Present</div>
                 <ul>
-                  <li>I&amp;C/SCADA field investigations, design &amp; construction documentation; FAT/SAT, field checkout, startup and commissioning.</li>
+                  <li>I&amp;C/SCADA field investigations, design &amp; construction documentation; FAT/SAT, field checkout, startup, commissioning.</li>
                 </ul>
               </div>
 
@@ -144,14 +203,17 @@
                   <li>Conducted security audits and presented internal cybersecurity awareness sessions; built/updated C++ and Ladder Logic.</li>
                 </ul>
               </div>
+
             </div>
           </div>
         </section>
 
+        <!-- TEACHING -->
         <section id="teaching" class="card retro-outset">
           <div class="section-header">Teaching Experience</div>
           <div class="section-body retro-inset">
             <div class="timeline">
+
               <div class="titem">
                 <div class="trole">Graduate Teaching Assistant — Systems Dynamics and Control</div>
                 <div class="tmeta">Oregon State University • Sep 2025 – Present</div>
@@ -164,64 +226,52 @@
                 <div class="trole">Graduate Teaching Assistant — Introduction to Instrumentation and Measurement Systems</div>
                 <div class="tmeta">Oregon State University • Sep 2024 – Dec 2024</div>
                 <ul>
-                  <li>Managed four labs per week; demonstrated measurement systems (transduction, signal conditioning, data recording) using Arduino DAQ.</li>
+                  <li>Managed four labs per week; demonstrated measurement systems using Arduino DAQ.</li>
                 </ul>
               </div>
 
-              <div class="titem">
-                <div class="trole">Supplemental Instruction Leader (Tutor Expert) — Differential Equations &amp; Linear Algebra</div>
-                <div class="tmeta">Mt. San Antonio College • Aug 2022 – Jan 2023</div>
-                <ul>
-                  <li>Prepared and ran tutoring sessions for ~15 students twice per week; attendance tripled and grades improved by 1+ letter grade.</li>
-                </ul>
-              </div>
             </div>
           </div>
         </section>
 
+        <!-- PUBLICATIONS -->
         <section id="publications" class="card retro-outset">
           <div class="section-header">Publications</div>
           <div class="section-body retro-inset">
             <ul class="listy">
-              <li><strong>2024:</strong> “I’m glad you remembered my name!” Using Gaze and Names in Robot-Aided Aging Activities (Aging in Place Workshop at HRI).</li>
-              <li><strong>2025:</strong> “You seem fun! Push a button for a joke”: How Older Adults Respond to Positive and Negative Robot Prompts (WPA).</li>
-              <li><strong>2026:</strong> Query Complexity and User Age Affects Perceived Naturalness of Response Delay… (ICRA — under review).</li>
+              <li><strong>2024:</strong> “I’m glad you remembered my name!” (HRI Workshop).</li>
+              <li><strong>2025:</strong> “You seem fun! Push a button for a joke” (WPA).</li>
+              <li><strong>2026:</strong> Query Complexity and User Age Affects Perceived Naturalness of Response Delay… (ICRA, under review).</li>
             </ul>
           </div>
         </section>
 
+        <!-- MENTORSHIP -->
         <section id="mentorship" class="card retro-outset">
           <div class="section-header">Mentorship &amp; Outreach</div>
           <div class="section-body retro-inset">
             <div class="timeline">
+
               <div class="titem">
                 <div class="trole">OSU SHARE Lab — Undergraduate Mentoring</div>
-                <div class="tmeta">Graduate Mentor</div>
                 <ul>
-                  <li>Mentored multiple undergraduate students; provided guidance across research projects, coding + hardware troubleshooting, and lab operations.</li>
+                  <li>Mentored undergraduate students across research, software, and hardware projects.</li>
                 </ul>
               </div>
 
               <div class="titem">
                 <div class="trole">REU: Robots in the Real World</div>
-                <div class="tmeta">Graduate Lead • Jun–Aug 2024 and Jun–Aug 2025</div>
+                <div class="tmeta">Graduate Lead • Summers 2024–2025</div>
                 <ul>
-                  <li>Primary point of contact for undergraduates, mentors, and advisors; managed questions and concerns.</li>
-                  <li>Assisted with weekly seminars and hosted a graduate-student Q&amp;A panel.</li>
+                  <li>Primary point of contact for REU students; assisted with seminars and graduate Q&amp;A panel.</li>
                 </ul>
               </div>
 
-              <div class="titem">
-                <div class="trole">“Summer Step” — Oregon State University</div>
-                <div class="tmeta">Mentor • Sep 2024</div>
-                <ul>
-                  <li>Advised incoming graduate students (often from historically marginalized communities) during their transition to graduate school.</li>
-                </ul>
-              </div>
             </div>
           </div>
         </section>
 
+        <!-- CONTACT -->
         <section id="contact" class="card retro-outset">
           <div class="section-header">Contact</div>
           <div class="section-body retro-inset">
@@ -232,39 +282,15 @@
             </p>
           </div>
         </section>
+
       </main>
-
-      <!-- RIGHT SIDEBAR -->
-      <aside class="side right" aria-label="Highlights">
-        <div class="widget retro-outset">
-          <div class="widget-title">Skills</div>
-          <div class="widget-content">
-            <div class="statusbox">
-              <p><strong>ML/Data:</strong> time-series, feature engineering, imputation (MICE/VAE), survival &amp; recurrent-event analysis</p>
-              <p><strong>Robotics:</strong> ROS 1/2, URDF/Xacro, Gazebo/RViz, integration, C/C++, motion planning</p>
-              <p><strong>Systems:</strong> SCADA/I&amp;C, FAT/SAT, commissioning, documentation</p>
-              <p><strong>Stack:</strong> Python/R, SQL, Git, Linux</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="widget retro-outset">
-          <div class="widget-title">Hobbies</div>
-          <div class="widget-content">
-            <ul class="mini">
-              <p>Tennis / pickleball</p>
-              <p>Robotics tinkering (sensors + embedded)</p>
-              <p>Live music / shows</p>
-            </ul>
-          </div>
-        </div>
-      </aside>
     </div>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <span>© <span id="year"></span> Jorge Ruballos</span>
       <span class="sep">|</span>
-      <span>Best viewed in 800x600 resolution</span>
+      <span>GitHub Pages • HTML/CSS</span>
     </footer>
   </div>
 
