@@ -1,14 +1,14 @@
 /* =========================================================
-   Retro Web Portal - 90s/Y2K Aesthetic
+   High-Contrast Retro Web Portal - Full Scrolling
    ========================================================= */
 
 :root {
-  --bg-color: #a3adba;   /* Classic Desktop Gray-Blue */
-  --panel-bg: #c0c0c0;  /* Standard Win95 Gray */
+  --bg-color: #ffffff;   /* Pure white for maximum contrast */
+  --panel-bg: #c0c0c0;  /* Win95 Gray */
   --window-light: #ffffff;
   --window-dark: #808080;
-  --border-black: #000000;
-  --header-blue: #000080; /* Classic Title Bar Blue */
+  --header-blue: #000080; 
+  --text-main: #000000;
   
   --ui-font: "MS Sans Serif", Tahoma, Verdana, sans-serif;
   --mono-font: "Courier New", Courier, monospace;
@@ -17,43 +17,42 @@
 body {
   margin: 0;
   background-color: var(--bg-color);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
   font-family: var(--ui-font);
-  font-size: 13px;
-  color: #000;
-  line-height: 1.4;
+  font-size: 14px;
+  color: var(--text-main);
+  line-height: 1.5;
+  /* Removed fixed background-attachment to allow natural scrolling */
 }
 
-/* --- THE 90s BORDER (Outset) --- */
+/* --- Retro Borders --- */
 .retro-outset {
   border: 2px solid;
   border-color: var(--window-light) var(--window-dark) var(--window-dark) var(--window-light);
   background: var(--panel-bg);
 }
 
-/* --- THE 90s BORDER (Inset/Sunken) --- */
 .retro-inset {
   border: 2px solid;
   border-color: var(--window-dark) var(--window-light) var(--window-light) var(--window-dark);
-  background: #fff;
+  background: #ffffff;
 }
 
 .page {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 10px;
+  width: 100%;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
-/* Header Section */
+/* Header - Stays at the top */
 .masthead {
   padding: 4px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .masthead-inner {
   background: var(--header-blue);
   color: white;
-  padding: 10px;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,152 +60,104 @@ body {
 
 .mast-title h1 {
   margin: 0;
-  font-size: 28px;
-  letter-spacing: 1px;
+  font-size: 32px;
+  text-shadow: 1px 1px #000;
 }
 
-.tagline {
-  font-size: 11px;
-  font-family: var(--mono-font);
-}
-
-/* Navigation */
-.top-pills {
-  display: flex;
-  gap: 2px;
-  margin-top: 10px;
-}
-
-.pill {
-  background: var(--panel-bg);
-  border: 2px solid;
-  border-color: var(--window-light) var(--window-dark) var(--window-dark) var(--window-light);
-  padding: 4px 12px;
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-}
-
-.pill:active {
-  border-color: var(--window-dark) var(--window-light) var(--window-light) var(--window-dark);
-}
-
-/* Layout Grid */
+/* Portal Layout - Sidebars now scroll naturally */
 .portal {
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
-  gap: 10px;
+  grid-template-columns: 240px 1fr 240px;
+  gap: 15px;
+  align-items: start;
 }
 
-/* Sidebar Widgets */
-.widget {
-  padding: 2px;
-  margin-bottom: 15px;
+/* Sidebar behavior changed from sticky to static */
+.side {
+  position: static; 
 }
 
-.widget-title {
+.widget, .card {
+  padding: 3px;
+  margin-bottom: 20px;
+}
+
+.widget-title, .section-header {
   background: #808080;
   color: white;
-  padding: 3px 6px;
+  padding: 4px 8px;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 13px;
 }
 
-.widget-content {
-  padding: 8px;
-}
-
-/* Main Content Area */
-.center {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.card {
-  padding: 2px;
-}
-
-.section-header {
-  background: #dfdfdf;
-  border-bottom: 1px solid #808080;
-  padding: 5px 10px;
-  font-weight: bold;
-}
-
-.section-body {
+.widget-content, .section-body {
   padding: 15px;
-  background: #fff;
+  background: #ffffff;
 }
 
-/* About / Hero Section */
-.hero {
-  display: flex;
-  gap: 20px;
-}
-
-.portrait-box {
-  width: 180px;
-  flex-shrink: 0;
-}
-
-.portrait-box img {
-  width: 100%;
-  border: 2px solid #000;
-  display: block;
-}
-
-/* Projects - Full Width Row Layout */
-.cards.rows {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
+/* Project High-Contrast Labels */
 .mini-card {
-  border-bottom: 1px dashed #808080;
-  padding-bottom: 10px;
-}
-
-.mini-card h3 {
-  margin: 0 0 5px 0;
-  color: #0000EE;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
 }
 
 .meta {
   font-family: var(--mono-font);
-  font-size: 11px;
-  color: #555;
+  font-weight: bold;
+  font-size: 13px;
+  color: #000; 
+  background: #f0f0f0; /* Light gray bar for tech stack legibility */
+  padding: 5px 10px;
+  display: block;
+  margin: 10px 0;
+  border-left: 3px solid var(--header-blue);
+}
+
+.mini-card h3 {
+  margin: 0;
+  color: #0000EE;
+  text-decoration: underline;
+}
+
+/* About / Hero */
+.hero {
+  display: flex;
+  gap: 25px;
+}
+
+.portrait-box img {
+  width: 200px;
+  border: 2px solid #000;
+  display: block;
 }
 
 /* Buttons */
-.sidebtn {
+.sidebtn, .pill {
   display: block;
-  background: #eee;
-  border: 1px solid #000;
-  margin-bottom: 4px;
-  padding: 5px;
+  background: var(--panel-bg);
+  border: 2px solid;
+  border-color: var(--window-light) var(--window-dark) var(--window-dark) var(--window-light);
+  padding: 6px 10px;
   text-decoration: none;
   color: #000;
-  font-size: 12px;
-}
-
-.sidebtn:hover {
-  background: #ffffcc;
-}
-
-/* Footer */
-.footer {
-  margin-top: 20px;
+  font-weight: bold;
   text-align: center;
-  font-family: var(--mono-font);
-  font-size: 11px;
-  border-top: 1px solid #808080;
-  padding-top: 10px;
+  margin-bottom: 5px;
 }
 
-/* Mobile */
-@media (max-width: 850px) {
+.sidebtn:active, .pill:active {
+  border-color: var(--window-dark) var(--window-light) var(--window-light) var(--window-dark);
+}
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  font-family: var(--mono-font);
+  font-size: 12px;
+  border-top: 1px solid #808080;
+}
+
+@media (max-width: 1000px) {
   .portal { grid-template-columns: 1fr; }
-  .hero { flex-direction: column; }
 }
