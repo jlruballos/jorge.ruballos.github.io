@@ -1,9 +1,10 @@
 /* =========================================================
-   Retro Web Portal - 90s/Y2K Aesthetic
+   Retro Web Portal - High Contrast & Full Width
+   Sidebars are "Sticky" to follow scroll
    ========================================================= */
 
 :root {
-  --bg-color: #a3adba;   /* Classic Desktop Gray-Blue */
+  --bg-color: #ffffff;   /* High Contrast White Background */
   --panel-bg: #c0c0c0;  /* Standard Win95 Gray */
   --window-light: #ffffff;
   --window-dark: #808080;
@@ -17,11 +18,10 @@
 body {
   margin: 0;
   background-color: var(--bg-color);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
   font-family: var(--ui-font);
-  font-size: 13px;
+  font-size: 14px;
   color: #000;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 /* --- THE 90s BORDER (Outset) --- */
@@ -39,21 +39,22 @@ body {
 }
 
 .page {
-  max-width: 1000px;
-  margin: 20px auto;
-  padding: 10px;
+  width: 100%; /* Cover the length of the screen */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 /* Header Section */
 .masthead {
   padding: 4px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .masthead-inner {
   background: var(--header-blue);
   color: white;
-  padding: 10px;
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,27 +62,26 @@ body {
 
 .mast-title h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 32px;
   letter-spacing: 1px;
 }
 
 .tagline {
-  font-size: 11px;
+  font-size: 12px;
   font-family: var(--mono-font);
 }
 
 /* Navigation */
 .top-pills {
   display: flex;
-  gap: 2px;
-  margin-top: 10px;
+  gap: 4px;
 }
 
 .pill {
   background: var(--panel-bg);
   border: 2px solid;
   border-color: var(--window-light) var(--window-dark) var(--window-dark) var(--window-light);
-  padding: 4px 12px;
+  padding: 5px 15px;
   text-decoration: none;
   color: black;
   font-weight: bold;
@@ -91,62 +91,68 @@ body {
   border-color: var(--window-dark) var(--window-light) var(--window-light) var(--window-dark);
 }
 
-/* Layout Grid */
+/* Layout Grid - Sidebars Follow Scroll */
 .portal {
   display: grid;
-  grid-template-columns: 200px 1fr 200px;
-  gap: 10px;
+  grid-template-columns: 240px 1fr 240px;
+  gap: 20px;
+  align-items: start;
+}
+
+.side {
+  position: sticky;
+  top: 20px; /* Sidebars stay in view when scrolling */
 }
 
 /* Sidebar Widgets */
 .widget {
   padding: 2px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .widget-title {
   background: #808080;
   color: white;
-  padding: 3px 6px;
+  padding: 4px 8px;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .widget-content {
-  padding: 8px;
+  padding: 12px;
 }
 
 /* Main Content Area */
 .center {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .card {
-  padding: 2px;
+  padding: 3px;
 }
 
 .section-header {
   background: #dfdfdf;
   border-bottom: 1px solid #808080;
-  padding: 5px 10px;
+  padding: 6px 12px;
   font-weight: bold;
 }
 
 .section-body {
-  padding: 15px;
+  padding: 20px;
   background: #fff;
 }
 
 /* About / Hero Section */
 .hero {
   display: flex;
-  gap: 20px;
+  gap: 25px;
 }
 
 .portrait-box {
-  width: 180px;
+  width: 220px;
   flex-shrink: 0;
 }
 
@@ -156,57 +162,72 @@ body {
   display: block;
 }
 
-/* Projects - Full Width Row Layout */
+/* Projects - High Contrast Meta */
 .cards.rows {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 .mini-card {
   border-bottom: 1px dashed #808080;
-  padding-bottom: 10px;
+  padding-bottom: 15px;
 }
 
 .mini-card h3 {
-  margin: 0 0 5px 0;
+  margin: 0 0 8px 0;
   color: #0000EE;
+  text-decoration: underline;
 }
 
 .meta {
   font-family: var(--mono-font);
-  font-size: 11px;
-  color: #555;
+  font-size: 13px;
+  font-weight: bold;
+  color: #000; /* Pure black for readability */
+  background: #f0f0f0; /* Light highlight bar */
+  padding: 4px 8px;
+  display: inline-block;
+  margin-bottom: 10px;
+  border-left: 3px solid var(--header-blue);
 }
 
 /* Buttons */
 .sidebtn {
   display: block;
   background: #eee;
-  border: 1px solid #000;
-  margin-bottom: 4px;
-  padding: 5px;
+  border: 2px solid;
+  border-color: var(--window-light) var(--window-dark) var(--window-dark) var(--window-light);
+  margin-bottom: 6px;
+  padding: 8px;
   text-decoration: none;
   color: #000;
-  font-size: 12px;
+  font-size: 13px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .sidebtn:hover {
-  background: #ffffcc;
+  background: #ffffcc; /* Classic hover yellow */
+}
+
+.sidebtn:active {
+  border-color: var(--window-dark) var(--window-light) var(--window-light) var(--window-dark);
 }
 
 /* Footer */
 .footer {
-  margin-top: 20px;
+  margin-top: 40px;
   text-align: center;
   font-family: var(--mono-font);
-  font-size: 11px;
+  font-size: 12px;
   border-top: 1px solid #808080;
-  padding-top: 10px;
+  padding: 20px;
 }
 
 /* Mobile */
-@media (max-width: 850px) {
+@media (max-width: 1000px) {
   .portal { grid-template-columns: 1fr; }
+  .side { position: static; }
   .hero { flex-direction: column; }
 }
