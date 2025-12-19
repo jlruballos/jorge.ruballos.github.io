@@ -1,19 +1,26 @@
 /* =========================================================
-   Retro Web Portal - 90s/Y2K Aesthetic
+   Retro Web Portal - 90s/Y2K Aesthetic (Flat, Win95-ish)
    ========================================================= */
 
 :root {
-  --bg-color: #ffffff;   /* White background */
-  --panel-bg: #c0c0c0;   /* Standard Win95 Gray */
+  --bg-color: #ffffff;        /* White page background */
+  --panel-bg: #c0c0c0;        /* Standard Win95 gray */
   --window-light: #ffffff;
   --window-dark: #808080;
   --border-black: #000000;
-  --header-blue: #000080; /* Classic Title Bar Blue */
+  --header-blue: #000080;     /* Classic title bar blue */
 
   --ui-font: "MS Sans Serif", Tahoma, Verdana, sans-serif;
   --mono-font: "Courier New", Courier, monospace;
+
+  /* Spacing + sticky offsets */
+  --page-pad: 8px;
+  --gap: 8px;
+  --sticky-top: 10px;         /* fallback if JS not used */
+  --masthead-gap: 8px;
 }
 
+/* Base */
 html, body {
   height: 100%;
 }
@@ -24,7 +31,7 @@ body {
   font-family: var(--ui-font);
   font-size: 13px;
   color: #000;
-  line-height: 1.4;
+  line-height: 1.35; /* slightly tighter */
 }
 
 /* --- THE 90s BORDER (Outset) --- */
@@ -41,25 +48,31 @@ body {
   background: #fff;
 }
 
-/* Make the whole layout fill the page (no centered "floating" container) */
+/* Full-viewport layout */
 .page {
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding: 10px;
+  padding: var(--page-pad);
   box-sizing: border-box;
 }
 
-/* Header Section */
+/* =========================================================
+   Sticky header
+   ========================================================= */
 .masthead {
   padding: 4px;
-  margin-bottom: 10px;
+  margin-bottom: var(--masthead-gap);
+
+  position: sticky;
+  top: 0;
+  z-index: 50; /* above sidebars/content */
 }
 
 .masthead-inner {
   background: var(--header-blue);
-  color: white;
-  padding: 10px;
+  color: #fff;
+  padding: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,22 +80,31 @@ body {
   flex-wrap: wrap;
 }
 
+.kicker {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  opacity: 0.95;
+}
+
 .mast-title h1 {
   margin: 0;
-  font-size: 28px;
-  letter-spacing: 1px;
+  font-size: 26px; /* slightly smaller */
+  letter-spacing: 0.5px;
 }
 
 .tagline {
+  margin: 2px 0 0 0;
   font-size: 11px;
   font-family: var(--mono-font);
 }
 
-/* Navigation */
+/* =========================================================
+   Navigation
+   ========================================================= */
 .top-pills {
   display: flex;
   gap: 2px;
-  margin-top: 10px;
+  margin-top: 6px;
   flex-wrap: wrap;
 }
 
@@ -90,77 +112,140 @@ body {
   background: var(--panel-bg);
   border: 2px solid;
   border-color: var(--window-light) var(--window-dark) var(--window-dark) var(--window-light);
-  padding: 4px 12px;
+  padding: 3px 10px; /* tighter */
   text-decoration: none;
-  color: black;
+  color: #000;
   font-weight: bold;
   display: inline-block;
+  line-height: 1.2;
 }
 
 .pill:active {
   border-color: var(--window-dark) var(--window-light) var(--window-light) var(--window-dark);
 }
 
-/* Layout Grid */
+/* =========================================================
+   Layout Grid
+   ========================================================= */
 .portal {
   display: grid;
   grid-template-columns: 220px 1fr 220px;
-  gap: 10px;
+  gap: var(--gap);
   align-items: start;
 }
 
-/* Sticky sidebars */
+/* =========================================================
+   Sticky sidebars (offset below sticky header)
+   ========================================================= */
 .side {
   position: sticky;
-  top: 10px;          /* stick just below viewport top */
-  align-self: start;  /* ensure sticky works in grid */
+  top: calc(var(--sticky-top) + 56px); /* conservative default */
+  align-self: start;
 }
 
-/* Sidebar Widgets */
+/*
+  If you want perfect offset that matches header height exactly,
+  add this tiny JS in your HTML (optional):
+  <script>
+    const mh = document.querySelector('.masthead');
+    const setTop = () => {
+      const h = mh ? mh.getBoundingClientRect().height : 0;
+      document.documentElement.style.setProperty('--masthead-h', `${h}px`);
+    };
+    window.addEventListener('load', setTop);
+    window.addEventListener('resize', setTop);
+    setTop();
+  </script>
+
+  Then uncomment the block below and remove the conservative calc above.
+*/
+/*
+.side {
+  top: calc(var(--page-pad) + var(--masthead-h, 0px) + var(--masthead-gap));
+}
+*/
+
+/* =========================================================
+   Sidebar Widgets
+   ========================================================= */
 .widget {
   padding: 2px;
-  margin-bottom: 10px;
+  margin-bottom: var(--gap);
 }
 
 .widget-title {
   background: #808080;
-  color: white;
+  color: #fff;
   padding: 3px 6px;
   font-weight: bold;
   font-size: 12px;
 }
 
 .widget-content {
-  padding: 8px;
+  padding: 6px;
 }
 
-/* Main Content Area */
+.mini {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Buttons (sidebar) */
+.sidebtn {
+  display: block;
+  background: #eee;
+  border: 1px solid #000;
+  margin-bottom: 4px;
+  padding: 5px 6px;
+  text-decoration: none;
+  color: #000;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.sidebtn:hover {
+  background: #ffffcc;
+}
+
+/* =========================================================
+   Main Content
+   ========================================================= */
 .center {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: var(--gap);
 }
 
 .card {
   padding: 2px;
 }
 
+/* Section header/body (retro window style) */
 .section-header {
   background: #dfdfdf;
   border-bottom: 1px solid #808080;
-  padding: 5px 10px;
+  padding: 4px 8px; /* tighter */
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .section-body {
-  padding: 15px;
+  padding: 12px; /* tighter */
   background: #fff;
 }
 
-/* About / Hero Section */
+/* About / Hero */
 .hero {
   display: flex;
-  gap: 20px;
+  gap: 14px;
+  align-items: flex-start;
 }
 
 .portrait-box {
@@ -174,16 +259,41 @@ body {
   display: block;
 }
 
-/* Projects - Full Width Row Layout */
+.statusline {
+  margin-top: 6px;
+  font-family: var(--mono-font);
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #00aa00;
+  border: 1px solid #000;
+  display: inline-block;
+}
+
+/* CTA row */
+.cta-row {
+  margin-top: 8px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Projects list */
 .cards.rows {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
 }
 
 .mini-card {
   border-bottom: 1px dashed #808080;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 .mini-card h3 {
@@ -192,40 +302,107 @@ body {
 }
 
 .meta {
+  margin: 0 0 6px 0;
   font-family: var(--mono-font);
   font-size: 11px;
   color: #555;
 }
 
-/* Buttons */
-.sidebtn {
-  display: block;
-  background: #eee;
-  border: 1px solid #000;
-  margin-bottom: 4px;
-  padding: 5px;
-  text-decoration: none;
-  color: #000;
-  font-size: 12px;
+.links a {
+  font-family: var(--mono-font);
 }
 
-.sidebtn:hover {
-  background: #ffffcc;
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Footer */
+.titem {
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #808080;
+}
+
+.titem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.trole {
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.tmeta {
+  font-family: var(--mono-font);
+  font-size: 11px;
+  color: #444;
+  margin-bottom: 6px;
+}
+
+.titem ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.listy {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.contact {
+  margin: 0;
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
 .footer {
-  margin-top: 12px;
+  margin-top: 10px;
   text-align: center;
   font-family: var(--mono-font);
   font-size: 11px;
   border-top: 1px solid #808080;
-  padding-top: 10px;
+  padding-top: 8px;
 }
 
-/* Mobile */
+/* =========================================================
+   Keyboard focus states (Win95-ish)
+   ========================================================= */
+a:focus {
+  outline: none; /* avoid default glow */
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px dotted #000;
+  outline-offset: 2px;
+}
+
+.pill:focus-visible,
+.sidebtn:focus-visible {
+  outline: 2px dotted #000;
+  outline-offset: 2px;
+}
+
+/* Optional: "sunken" look on focus for pills */
+.pill:focus-visible {
+  border-color: var(--window-dark) var(--window-light) var(--window-light) var(--window-dark);
+}
+
+/* =========================================================
+   Mobile
+   ========================================================= */
+@media (max-width: 950px) {
+  .portal { grid-template-columns: 200px 1fr; }
+  .side.right { display: none; } /* optional: hide right sidebar on medium screens */
+}
+
 @media (max-width: 850px) {
   .portal { grid-template-columns: 1fr; }
-  .side { position: static; } /* sticky off on mobile for usability */
+  .side { position: static; } /* sticky off on mobile */
   .hero { flex-direction: column; }
+  .portrait-box { width: 220px; }
 }
