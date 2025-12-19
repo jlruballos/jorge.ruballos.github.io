@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Jorge Ruballos — Robotics, ML, Control Systems</title>
-  <meta name="description" content="Jorge Ruballos — AI & robotics engineer. Longitudinal sensor ML, survival/recurrent-event modeling, embedded + SCADA/control systems." />
+  <meta name="description" content="Jorge Ruballos — robotics + applied ML engineer. Longitudinal sensor modeling, survival/recurrent-event analysis, ROS and systems engineering." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
@@ -27,23 +27,22 @@
             <p class="subtitle">Robotics • Machine Learning • Control Systems (SCADA/I&amp;C)</p>
 
             <p class="blurb">
-              AI and robotics engineer developing end-to-end ML systems and evaluating them in real-world, resource-constrained research environments.
-              M.S. Robotics (OSU SHARE Lab). Background in embedded systems and industrial control systems; experienced translating technical requirements
-              between researchers, engineers, and stakeholders through training, presentations, and collaborative development.
+              AI and robotics engineer building end-to-end pipelines and deploying systems in real-world research and industrial settings.
+              M.S. Robotics (OSU SHARE Lab). Background in embedded systems and municipal SCADA/control systems; experienced bridging research,
+              engineering, and stakeholder needs through training, testing, and collaborative delivery.
             </p>
 
             <div class="links">
-              <a class="pill" href="#focus">Focus</a>
+              <a class="pill" href="#projects">Projects</a>
               <a class="pill" href="#experience">Experience</a>
               <a class="pill" href="#publications">Publications</a>
               <a class="pill" href="#skills">Skills</a>
               <a class="pill" href="#contact">Contact</a>
 
-              <!-- Update these two -->
               <a class="pill" href="https://github.com/jlruballos" target="_blank" rel="noopener">GitHub</a>
-              <a class="pill" href="https://www.linkedin.com/in/YOURHANDLE" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="pill" href="https://www.linkedin.com/in/jorge-ruballos-44957291/" target="_blank" rel="noopener">LinkedIn</a>
 
-              <!-- Optional: add a resume PDF to /assets and link it -->
+              <!-- Optional: add a resume PDF at /assets and keep this link -->
               <a class="pill" href="assets/Jorge_Ruballos_Resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
             </div>
           </div>
@@ -52,7 +51,7 @@
             <img src="assets/headshot.jpg" alt="Headshot of Jorge Ruballos" />
             <div class="status">
               <span class="dot" aria-hidden="true"></span>
-              Corvallis, OR • Proficient in Spanish • Open to robotics / ML / systems roles
+              Corvallis, OR • Spanish • Robotics / ML / Systems
             </div>
           </div>
         </div>
@@ -60,17 +59,45 @@
     </header>
 
     <main id="content">
-      <section id="focus" class="window">
+      <section id="projects" class="window">
         <div class="titlebar">
-          <div class="title">Focus</div>
+          <div class="title">Selected Projects</div>
           <div class="controls" aria-hidden="true"><span class="btn">□</span></div>
         </div>
         <div class="window-body">
-          <ul class="list">
-            <li><span class="tag">Research</span> Longitudinal health sensor modeling: feature engineering, imputation (MICE/VAE), survival & recurrent-event analysis for outcomes like falls and hospitalization.</li>
-            <li><span class="tag">Robotics</span> Intelligent robotic systems and human-facing deployments (NAO; Quori/Misty II integration; ROS 1/2 with MoveIt, URDF/Xacro, Gazebo, RViz).</li>
-            <li><span class="tag">Industry</span> Control systems / SCADA: field investigations, design & construction documentation, factory/site acceptance testing, field checkout, startup and commissioning.</li>
-          </ul>
+          <div class="cards">
+
+            <article class="card">
+              <h2>DETECT — Longitudinal Health Trend Analysis</h2>
+              <p class="meta">Python / R • Time-series, imputation, survival & recurrent events</p>
+              <p>
+                End-to-end data engineering and modeling workflows for multi-modal longitudinal in-home sensor data.
+                Feature engineering (rolling, deltas, normalization), missingness analysis, imputation, and downstream
+                survival/recurrent-event modeling for outcomes like falls and hospitalization.
+              </p>
+              <div class="card-links">
+                <a href="https://github.com/jlruballos/DETECT" target="_blank" rel="noopener">Repository</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h2>sammy_ws — Robot Simulator / ROS Workspace</h2>
+              <p class="meta">ROS 2 • Simulation / visualization / robot tooling</p>
+              <p>
+                Robotics simulator workspace for experimentation and integration work.
+                Used as a base for testing robot behaviors, motion-planning-adjacent workflows, and development iterations
+                in a reproducible environment.
+              </p>
+              <div class="card-links">
+                <a href="https://github.com/jlruballos/sammy_ws" target="_blank" rel="noopener">Repository</a>
+              </div>
+            </article>
+
+          </div>
+
+          <p class="fine" style="margin-top:12px;">
+            More code: <a href="https://github.com/jlruballos" target="_blank" rel="noopener">github.com/jlruballos</a>
+          </p>
         </div>
       </section>
 
@@ -86,9 +113,9 @@
               <h2>Graduate Research Assistant — OSU SHARE Lab</h2>
               <p class="meta">Oregon State University • Sep 2023 – Present</p>
               <ul class="bullets">
-                <li>Engineer features from longitudinal in-home sensor data for older-adult monitoring in collaboration with OHSU and Dr. Naomi Fitter.</li>
-                <li>Built an end-to-end pipeline integrating sleep, mobility, and survey data; performed imputation and trained survival/recurrent-event models for health outcomes.</li>
-                <li>Present quarterly updates with NSF AI-CARING collaborators to align methods and research objectives.</li>
+                <li>Engineer features from longitudinal in-home sensor data in collaboration with OHSU and NSF AI-CARING partners.</li>
+                <li>Built ML + statistics pipelines across sleep, mobility, and survey data; evaluated imputation and survival/recurrent-event models.</li>
+                <li>Communicate results through presentations and cross-team research coordination.</li>
               </ul>
             </article>
 
@@ -96,9 +123,8 @@
               <h2>Control Systems Engineer — Arcadis</h2>
               <p class="meta">Irvine, CA • Jan 2023 – Present</p>
               <ul class="bullets">
-                <li>I&amp;C and SCADA field investigation services for municipal water/wastewater systems and facilities.</li>
-                <li>Field engineering and design services to produce design and construction documents.</li>
-                <li>Factory testing, site acceptance testing, field checkout, and startup of I&amp;C/SCADA systems.</li>
+                <li>I&amp;C and SCADA field investigations for municipal water/wastewater systems and facilities.</li>
+                <li>Design and construction documentation; support testing, field checkout, startup, and commissioning.</li>
               </ul>
             </article>
 
@@ -106,19 +132,18 @@
               <h2>Engineer (SCADA / Control Systems) — Metropolitan Water District</h2>
               <p class="meta">Los Angeles, CA • Oct 2016 – Jan 2022</p>
               <ul class="bullets">
-                <li>Led a data acquisition system modernization effort replacing an obsolete system with limited storage.</li>
-                <li>Administered large operational databases (hundreds of reports, 500+ notifications, 25k datapoints) and AMR system (300+ metering sites).</li>
-                <li>Conducted security audits, reported vulnerabilities, and delivered internal cybersecurity awareness webinars.</li>
-                <li>Developed/updated C++ and Ladder Logic for automation needs; authored test plans and internal documentation.</li>
+                <li>Modernized data acquisition systems; administered large operational databases and metering networks.</li>
+                <li>Performed security audits and delivered internal cybersecurity webinars; authored test plans and documentation.</li>
+                <li>Developed/updated C++ and Ladder Logic for automation and operational workflows.</li>
               </ul>
             </article>
 
             <article class="card">
-              <h2>Robot-Assisted Exercise Interventions — Researcher/Programmer/Facilitator</h2>
-              <p class="meta">NRI-funded study • OSU SHARE Lab</p>
+              <h2>Robot-Assisted Aging Interventions — Researcher/Programmer/Facilitator</h2>
+              <p class="meta">OSU SHARE Lab • Older adult deployments</p>
               <ul class="bullets">
-                <li>Designed and implemented robot-assisted physical + cognitive exercise programs for older veterans in a skilled nursing facility setting.</li>
-                <li>Refined NAO robot speech, non-verbal behaviors, and interaction flow for in-situ engagement studies.</li>
+                <li>Designed and implemented robot-assisted physical + cognitive exercise sessions for older veterans.</li>
+                <li>Built and iterated NAO robot speech/behavior flows to support in-situ engagement studies.</li>
               </ul>
             </article>
 
@@ -150,46 +175,31 @@
             <div>
               <h3>Software / Tools</h3>
               <p class="fine">
-                Python (Pandas, NumPy, scikit-learn, PyTorch, TensorFlow, StatsModels), R (tidyverse, reReg, reda), SQL, Git, Linux (Ubuntu),
-                MATLAB, Docker, VS Code, Jupyter.
+                Python (Pandas, NumPy, scikit-learn, PyTorch, TensorFlow, StatsModels), R (tidyverse, reReg, reda),
+                SQL, Git, Linux (Ubuntu), MATLAB, Docker, VS Code, Jupyter.
               </p>
 
               <h3>Robotics</h3>
               <p class="fine">
-                ROS 1/2 (MoveIt, URDF/Xacro, Gazebo, RViz), C/C++, motion planning (UR5e), Quori &amp; Misty II integration, Arduino, Raspberry Pi,
-                sensor fusion, PID control.
+                ROS 1/2 (MoveIt, URDF/Xacro, Gazebo, RViz), C/C++, motion planning, Arduino/Raspberry Pi, PID control,
+                robot integration (Quori, Misty II, NAO).
               </p>
             </div>
 
             <div>
               <h3>Machine Learning</h3>
               <p class="fine">
-                Time-series modeling, feature engineering, LSTM &amp; VAE architectures, XGBoost, Random Forest, PCA, clustering, imputation (MICE/VAE),
-                survival &amp; recurrent event analysis, calibration &amp; visualization.
+                Time-series modeling, feature engineering, LSTM/VAE, gradient-boosted trees, Random Forest, PCA/clustering,
+                missing-data imputation (MICE/VAE), survival & recurrent-event analysis, calibration/visualization.
               </p>
 
               <h3>Industrial / Embedded</h3>
               <p class="fine">
                 RSLogix, FactoryTalk, PLCs (Allen-Bradley/Siemens), PanelView HMI, OSIsoft PI, OnSite SCADA, CyberX,
-                embedded comms (Ethernet/IP, Modbus, UART, SPI, I²C), Spartan-3e FPGA, PSoC (ARM).
+                Ethernet/IP, Modbus, UART, SPI, I²C.
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="education" class="window">
-        <div class="titlebar">
-          <div class="title">Education &amp; Teaching</div>
-          <div class="controls" aria-hidden="true"><span class="btn">□</span></div>
-        </div>
-        <div class="window-body">
-          <ul class="list">
-            <li><span class="tag">M.S.</span> Robotics — Oregon State University (Sep 2023 – Present), Advisor: Dr. Naomi Fitter. Robotics Graduate Student Association, Co-President.</li>
-            <li><span class="tag">B.S.</span> Computer Engineering — California State Polytechnic University, Pomona.</li>
-            <li><span class="tag">TA</span> Systems Dynamics and Control — Graduate TA (Sep 2025 – Present).</li>
-            <li><span class="tag">TA</span> Instrumentation and Measurement Systems — Graduate TA (Sep 2024 – Dec 2024), Arduino-based DAQ labs.</li>
-          </ul>
         </div>
       </section>
 
@@ -201,11 +211,10 @@
         <div class="window-body">
           <p>
             Email: <a href="mailto:jlruballos@gmail.com">jlruballos@gmail.com</a><br />
-            GitHub: <a href="https://github.com/jlruballos" target="_blank" rel="noopener">github.com/jlruballos</a>
+            LinkedIn: <a href="https://www.linkedin.com/in/jorge-ruballos-44957291/" target="_blank" rel="noopener">jorge-ruballos</a><br />
+            GitHub: <a href="https://github.com/jlruballos" target="_blank" rel="noopener">jlruballos</a>
           </p>
-          <p class="fine">
-            Last updated: <span id="updated"></span>
-          </p>
+          <p class="fine">Last updated: <span id="updated"></span></p>
         </div>
       </section>
     </main>
